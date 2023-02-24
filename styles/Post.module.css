@@ -1,0 +1,32 @@
+.post_container{
+    min-height: 100vh;
+    padding-top: 90px;
+    width: 90vw;
+    margin: auto;
+}
+.post_container li{
+    line-height: 25px;
+}
+.post_container ol{
+    margin: 10px 0;
+}
+.post_container ul{
+    margin: 10px 0;
+}
+.post_container h2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 28px;
+}
+.post_container p{
+    line-height: 25px;
+}
+.post_container pre{
+    margin: 20px 0;
+    border-radius: 5px;
+    background: var(--code_bg);
+    color: var(--code_text);
+    padding: 10px;
+    overflow-x: scroll;
+}

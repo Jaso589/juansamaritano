@@ -1,0 +1,26 @@
+.contact_container{
+    min-height: 100vh;
+    padding-top: 80px;
+    background: linear-gradient(199.11deg, #F1F1F1 4.75%, rgba(242, 241, 241, 0.854099) 37.2%, rgba(252, 251, 251, 0.74) 102.61%);
+
+}
+.contact_container h2{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;  
+    text-align: center;
+    margin-bottom: 50px;
+}
+.contact_container div:nth-child(2){
+    display: flex;
+    align-items: flex-start;
+}
+.contact_container form{
+    margin-top: 40px;
+    width: 100%;
+}
+@media (min-width:900px){
+    .contact_container form{
+        width: 40vw;
+    }
+}
