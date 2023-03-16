@@ -1,0 +1,366 @@
+---
+title: 'markdown'
+date: '18-2-2023'
+img: '/blog/markdown.png'
+
+---
+# Markdown
+
+Markdown es un lenguaje de marcado ligero creado por John Gruber  en 2004, tiene la finalidad de permitir crear contenido de una manera sencilla de escribir, y que en todo momento mantenga un diseño legible.
+
+El objetivo de su creador fue hacer que la gente pudiera escribir usando un formato de texto plano fácil de leer, fácil de escribir y con la posibilidad de convertir su documento en HTML válido.
+
+La gran simpleza de su sintaxis hizo que tuviera una rápida adopción y popularidad en la comunidad de desarrolladores.
+
+Actualmente aparte de permitir generar contenido HTML de forma dinámica, también se emplea (casí de forma estándar) para la creación de documentación técnica y con la proliferación de la arquitectura JAM Stack para la creación de sitios estáticos a través de herramientas de tipo SSG (Static Site Generator) y SSR (Server Side Rendering) como Hugo, Gatsby, Eleventy, Next.js, Sergey, Astro, entre otros, Markdown se ocupa para la generación de contenido editorial (artículos de blog) de forma dinámica.
+
+## Sintaxis Markdown
+
+La sintaxis es muy sencilla y cuenta con varias opciones para algunos de sus elementos. Básicamente se trata de añadir ciertos caracteres al inicio o final de la línea o el elemento al que vamos a aplicar el formato.
+
+### Cabeceras
+
+Los encabezamientos HTML se producen colocando un número determinado de almohadillas # antes del texto correspondiente al nivel de encabezamiento deseado 
+
+![cabeceras markdown](/blog/markdown/cabeceras.png)
+
+### Enlaces
+
+La manera de crear enlaces son las siguientes
+
+1. enlace con titulo
+
+#### Código Markdown
+~~~
+[Ver Juan Samaritano](https://juansamaritano.vercel.app/ "Juan samaritano")
+~~~
+
+#### Contenido Markdown
+[Ver Juan Samaritano](https://juansamaritano.vercel.app/ "Juan samaritano")
+
+2. enlace sin titulo
+
+#### Código Markdown
+~~~
+[Ver Juan Samaritano](https://juansamaritano.vercel.app/)
+~~~
+
+#### Contenido Markdown
+[Ver Juan Samaritano](https://juansamaritano.vercel.app/)
+
+3. tercera forma
+
+#### Código Markdown
+~~~
+[Enlace 1][1], [Enlace 2][2], [Enlace 3][3]
+
+ [1]: http://joedicastro.com/consejos
+ [2]: http://joedicastro.com/consejos "Consejos"
+ [3]: http://joedicastro.com/
+~~~
+
+#### Contenido Markdown
+[Enlace 1][1], [Enlace 2][2], [Enlace 3][3]
+
+ [1]: https://juansamaritano.vercel.app/
+ [2]: https://juansamaritano.vercel.app/ "Juan Samaritano"
+ [3]: https://juansamaritano.vercel.app/blog/
+
+### Imagenes
+
+#### Código Markdown
+~~~
+![This is JavaScript](https://jonmircha.com/img/blog/this-is-javascript.jpg)
+~~~
+
+#### Contenido Markdown
+![This is JavaScript](https://jonmircha.com/img/blog/this-is-javascript.jpg)
+
+### Párrafos
+
+#### Código Markdown
+~~~
+Párrafo 1...
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatibus, molestiae omnis, voluptas ullam dolorem accusantium cumque minima quod saepe quis corporis eos nemo sequi dolore reiciendis dignissimos? Quis, provident.
+
+Párrafo 3...
+~~~
+
+#### Contenido Markdown
+Párrafo 1...
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatibus, molestiae omnis, voluptas ullam dolorem accusantium cumque minima quod saepe quis corporis eos nemo sequi dolore reiciendis dignissimos? Quis, provident.
+
+Párrafo 3...
+
+### Estilos de texto
+
+Tambien podemos aplicar algunos estilos de texto a nuestro contenido markdown como las siguiente:
+
+#### Código Markdown
+~~~
+_cursiva_
+
+**negrita**
+
+~tachado~
+
+**_cursiva y negrita_**
+
+_~cursiva y tachado~_
+
+**~negrita y tachado~**
+
+**_~cursiva, negrita y tachado~_**
+~~~
+
+#### Contenido Markdown
+_cursiva_
+
+**negrita**
+
+~tachado~
+
+**_cursiva y negrita_**
+
+_~cursiva y tachado~_
+
+**~negrita y tachado~**
+
+**_~cursiva, negrita y tachado~_**
+
+### Divisiones
+
+En HTML se tiene la etiqueta `<hr>` para definir una división o ruptura semántica entre bloques de contenido. Se visualiza como una línea horizontal.
+
+#### Código Markdown
+~~~
+---
+parrafo
+***
+~~~
+
+#### Contenido Markdown
+---
+parrafo
+***
+
+### Listas
+
+Podemos crear tanto listas ordenadas y sin orden en Markdown
+
+### Listas ordenadas
+
+#### Código Markdown
+~~~
+1. Enero
+2. Febrero
+3. Marzo
+4. Abril
+~~~
+
+#### Contenido Markdown
+1. Enero
+2. Febrero
+3. Marzo
+4. Abril
+
+### Listas sin orden
+
+#### Código Markdown
+~~~
+- Enero
+- Febrero
+- Marzo
+- Abril
+~~~
+
+#### Contenido Markdown
+- Enero
+- Febrero
+- Marzo
+- Abril
+
+### Listas anidadas
+
+Tambien puedes generar listas anidadas (sublistas), usa la indentación para controlar los niveles de los elementos de la lista.
+
+#### Código Markdown
+~~~
+- Primavera
+  - Abril
+  - Mayo
+  - Junio
+- Verano
+  - Julio
+  - Agosto
+  - Septiembre
+- Otoño
+  1. Octubre
+  1. Noviembre
+     - Día de Muertos
+     - _Black Friday_
+  1. Diciembre
+- Invierno
+  1. Enero
+  1. Febrero
+  1. Marzo
+~~~
+
+#### Contenido Markdown
+- Primavera
+  - Abril
+  - Mayo
+  - Junio
+- Verano
+  - Julio
+  - Agosto
+  - Septiembre
+- Otoño
+  1. Octubre
+  1. Noviembre
+     - Día de Muertos
+     - _Black Friday_
+  1. Diciembre
+- Invierno
+  1. Enero
+  1. Febrero
+  1. Marzo
+
+### Citas
+
+Podemos dar formato de cita a un texto, anteponiendo a la línea de texto un carcater de mayor qué (>).
+
+Podemos declarar citas en una sóla línea o en bloque.
+
+### Citas en línea
+
+#### Código Markdown
+~~~
+> Todo lo que escuchamos es una opinión, no un hecho. Todo lo que vemos es una perspectiva, no la verdad. - Marco Aurelio.
+~~~
+
+#### Contenido Markdown
+> Todo lo que escuchamos es una opinión, no un hecho. Todo lo que vemos es una perspectiva, no la verdad. - Marco Aurelio.
+
+### Citas en bloque
+
+#### Código Markdown
+~~~
+> Todo lo que escuchamos es una opinión, no un hecho. Todo lo que vemos es una perspectiva, no la verdad.
+>
+> Marco Aurelio.
+~~~
+
+#### Contenido Markdown
+> Todo lo que escuchamos es una opinión, no un hecho. Todo lo que vemos es una perspectiva, no la verdad.
+>
+> Marco Aurelio.
+
+### Tablas
+
+Puedes insertar tablas en Markdown de la siguiente manera
+
+#### Código Markdown
+~~~
+| Columna 1 | Columna 2 | Columna 3 |
+| --------- | --------- | --------- |
+| A         | B         | C         |
+| D         | E         | F         |
+| G         | H         | I         |
+~~~
+
+#### Contenido Markdown
+| Columna 1 | Columna 2 | Columna 3 |
+| --------- | --------- | --------- |
+| A         | B         | C         |
+| D         | E         | F         |
+| G         | H         | I         |
+
+### Códigos
+
+Podemos dar formato de código a un texto, para ello se usa el acento grave (`).
+
+Podemos declarar código en una sóla línea o en bloque.
+
+### Código en línea
+
+#### Código Markdown
+~~~
+Esto es `código` en línea.
+
+En _JavaScript_ una variable se define así: `let message = "Hola Mundo";`.
+~~~
+
+#### Contenido Markdown
+Esto es `código` en línea.
+
+En _JavaScript_ una variable se define así: `let message = "Hola Mundo";`.
+
+### Código en bloque
+
+#### Código Markdown
+~~~
+```js
+function sumar(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    console.error(`Los valores ingresados NO son números.`);
+    return false;
+  }
+
+  let c = a + b;
+  return c;
+}
+```
+~~~
+
+### Contenido Markdown
+```js
+function sumar(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    console.error(`Los valores ingresados NO son números.`);
+    return false;
+  }
+
+  let c = a + b;
+  return c;
+}
+```
+
+### Código HTML
+
+Markdown también interpreta código HTML dentro de su sintaxis.
+
+#### Código Markdown
+~~~
+<form>
+  <label for="q">Buscar:</label>
+  <input type="search" name="q" id="q" required />
+  <input type="submit" value="🔍" />
+</form>
+~~~
+
+#### Contenido Markdown
+<form>
+  <label for="q">Buscar:</label>
+  <input type="search" name="q" id="q" required />
+  <input type="submit" value="🔍" />
+</form>
+
+
+### Escape de caracteres
+
+Se le llama escape de caracteres al proceso que hace un lenguaje de marcado o programación para omitir los caracteres especiales que usa para la definición de su sintaxis. Al escapar caracteres, el lenguaje los interpretará como simple texto plano.
+
+Por ejemplo Markdown usa los siguientes caracteres especiales: guión bajo, medio, asterísco, corchetes cuadrados, paréntesis, almohadilla, acento grave, barra invertida, etc.
+
+Para escapar un caracter en Markdown sólo tenemos que anteponerle un barra invertida \.
+
+#### Código Markdown
+~~~
+Texto en \_cursiva\_ y \*\*negrita\*\*.
+~~~
+
+#### Contenido Markdown
+Texto en \_cursiva\_ y \*\*negrita\*\*.

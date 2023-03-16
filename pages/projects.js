@@ -123,14 +123,16 @@ const Projects = () => {
               {
                 usuarios.map(({img, title, description, deploy, code, index}) => (
                   <div className={styles.card} key={title}>
-                    <Image
-                      className={styles.img_card}
-                      src={img}
-                      width={350}
-                      height={250}
-                      alt={title}
-                      key={index}
-                    />
+                    <div className={styles.proyect_img}>
+                      <Image
+                        className={styles.img_card}
+                        src={img}
+                        fill
+                        alt={title}
+                        key={index}
+                      />
+                    </div>
+                    
                     <div className={styles.card_content}>
                       <h3>{title}</h3>
                       <p>{description}</p>

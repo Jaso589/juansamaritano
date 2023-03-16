@@ -3,7 +3,7 @@
     display: flex;
     height: 70px;
     width: 100vw;
-    z-index: 999;
+    z-index: 9999;
     background: transparent;
 }
 .header_scroll{
@@ -12,6 +12,7 @@
     height: 70px;
     width: 100vw;
     z-index: 999;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
     background: linear-gradient(89.96deg, #F4F3F3 22.51%, #F2F2F2 71.24%);
 }
 .container{
@@ -69,6 +70,15 @@
 }
 
 @media (min-width:900px){
+    .container{
+        position: relative;
+        width: 90vw;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
     .btn_menu{
         display:none;
     }
@@ -94,3 +104,9 @@
     
     
 }
+@media (min-width:1000px){
+    .container{
+      width: 1150px;
+      margin: auto;
+    }
+  }

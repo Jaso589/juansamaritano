@@ -11,8 +11,7 @@ const Layout = ({ children, title_nav }) => {
     <>
         <Head>
             <title>{title_nav} | JASO</title>
-            <meta name="description" content="Soy un profesional electrónico y desarrollador web freelance, un profesional creativo, con capacidad de resiliencia y aprendizaje continuo." />
-
+            <meta name="description" content="Hola soy Juan Samaritano, soy un profesional electrónico y desarrollador web freelance, un profesional creativo, con capacidad de resiliencia y aprendizaje continuo." />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/jaso_visual.png" />
         </Head>
@@ -21,7 +20,7 @@ const Layout = ({ children, title_nav }) => {
           <input className='btn_social check_btn' type={'checkbox'}/>
           <button className='btn_social'>
             <Image
-              src={'./svg/btn_socials.svg'}
+              src={'/svg/btn_socials.svg'}
               width={60}
               height={60}
               alt='btn_socials'

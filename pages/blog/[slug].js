@@ -7,9 +7,14 @@ import styles from '@/styles/Post.module.css'
 const Post = ({ source, frontmatter }) => {
   return (
     <Layout title_nav={frontmatter.slug}>
-        <section className={styles.post_container}>
-            <MDXRemote {...source}/>
-        </section>
+        <div  className={styles.container}>
+            <section className='container'>
+                <div className={styles.post_container}>
+                <MDXRemote {...source}/>
+                </div>
+            </section>
+        </div>
+        
     </Layout>
     
   )
@@ -18,7 +23,7 @@ const Post = ({ source, frontmatter }) => {
 export default Post
 
 export async function getStaticProps({ params }){ 
-    const {source,  frontmatter} = await getFileBySlug(params.slug);
+    const {source,  frontmatter} = await getFileBySlug('blog',params.slug);
     
     return{
         props: { source,  frontmatter},
@@ -26,7 +31,7 @@ export async function getStaticProps({ params }){
 }
 
 export async function getStaticPaths(){
-    const posts = await getFiles();
+    const posts = await getFiles('blog');
     const paths = posts.map((post) =>({
         params:{
             slug: post.replace(/\.mdx/, ""),

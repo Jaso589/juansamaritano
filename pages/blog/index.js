@@ -51,7 +51,10 @@ const Blog = ({posts}) => {
               {
                 usuarios.map( post => (
                   <Link className={styles.card_post} key={post.slug} href={`blog/${post.slug}`}>
-                    <Image className={styles.card_img_post} src={post.img} width={200} height={100} alt={post.title}/>
+                    <div className={styles.post_img}>
+                      <Image className={styles.card_img_post} src={post.img} fill alt={post.title}/>
+                    </div>
+                    
                     <div>
                       <h2>{post.title}</h2>
                       <p>{post.date}</p>
@@ -71,7 +74,7 @@ const Blog = ({posts}) => {
 export default Blog
 
 export async function getStaticProps() {
-  const posts = await getAllFilesMetadata();
+  const posts = await getAllFilesMetadata('blog');
   console.log(posts)
   return{
     props: {posts}
