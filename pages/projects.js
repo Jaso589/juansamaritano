@@ -2,6 +2,7 @@ import Layout from '@/components/Layout'
 import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Projects.module.css'
 import Image from 'next/image'
+import { getAllFilesMetadata } from '@/lib/mdx'
 
 export const works = [
   {
@@ -78,15 +79,15 @@ export const works = [
   
 ]
 
-const Projects = () => {
+const Projects = ({projects}) => {
 
   const [usuarios, setUsuarios]= useState([]);
   const [tablaUsuarios, setTablaUsuarios]= useState([]);
   const [busqueda, setBusqueda]= useState("");
   
   useEffect(()=>{
-    setUsuarios(works)
-    setTablaUsuarios(works)
+    setUsuarios(projects)
+    setTablaUsuarios(projects)
     },[]
   )
     
@@ -108,7 +109,7 @@ const Projects = () => {
 
   return (
     <Layout title_nav={'Portafolio'}>
-      <section className='inicio'>
+      <section className={styles.inicio}>
         <div className={styles.projects}>
           <div className={styles.aside}>
             <h2>Proyectos</h2>
@@ -121,7 +122,7 @@ const Projects = () => {
             </div>
             <div className={styles.cards}>
               {
-                usuarios.map(({img, title, description, deploy, code, index}) => (
+                usuarios.map(({img, title, description, site, code, index}) => (
                   <div className={styles.card} key={title}>
                     <div className={styles.proyect_img}>
                       <Image
@@ -137,7 +138,7 @@ const Projects = () => {
                       <h3>{title}</h3>
                       <p>{description}</p>
                       <div className={styles.card_links}>
-                        <a className={styles.btn_link} href={deploy} target='_blank' rel="noopener noreferrer">Sitio</a>
+                        <a className={styles.btn_link} href={site} target='_blank' rel="noopener noreferrer">Sitio</a>
                         <a className={styles.btn_link} href={code} target='_blank' rel="noopener noreferrer">Codigo</a>
                       </div>
                     </div>
@@ -154,3 +155,10 @@ const Projects = () => {
 }
 
 export default Projects
+
+export async function getStaticProps() {
+  const projects = await getAllFilesMetadata('projects');
+  return{
+    props: {projects}
+  }
+}

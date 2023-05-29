@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from '@/hooks/useForm'
-import Estilo from '@/styles/Contact.module.css'
+import estilos from '@/styles/Form.module.css'
 
 const initalForm = {
   name:'',
@@ -70,9 +70,9 @@ export const FormContact = () => {
     <div className='container'>
       
               <h2>Contacto</h2>
-              <div className='content'>
+              <div className={estilos.content}>
 
-                <form className='form' onSubmit={handleSubmit} method='POST'>
+                <form className={estilos.form} onSubmit={handleSubmit} method='POST'>
                   <label >
                     Ingresa tu nombre
                   </label>
@@ -122,11 +122,11 @@ export const FormContact = () => {
                   value={form.comments}
                   required></textarea>
 
-                  <button className='btn_send' type='submit'>Enviar</button>
+                  <button className={estilos.btn_send} type='submit'>Enviar</button>
                 </form>
                 {loading && <p>cargando</p>}
                 {response && <p>enviado</p>}
-                <div className='data'>
+                <div className={estilos.data}>
                   <h4>Dirección</h4>
                   <p>2972 Westheimer Rd. Santa Ana, Illinois 85486 </p>
                   <h4>Teléfono</h4>

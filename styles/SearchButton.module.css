@@ -1,0 +1,38 @@
+.search_container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search_container form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.search_container form input{
+    font-size: .9rem;
+    height: 30px;
+    padding-left: 10px;
+    margin-right: 7px;
+    border: none;
+    width: 100px;
+    /* position: absolute;
+    right: 30px; */
+}
+.search_container form button{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width:900px){
+    .search_container form input:focus{
+        width: 200px;
+    }
+}

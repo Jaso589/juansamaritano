@@ -27,10 +27,16 @@
 }
 .brand{
     font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
     /* identical to box height */
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+}
+.brand a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 20px;
 }
 .navbar{
     background: var(--white);
@@ -61,7 +67,7 @@
     height: 70px;
     transition: all .2s ease-in;
     cursor: pointer;
-    border-radius: 50%;
+    background: none;
 }
 .close_menu:hover{
     cursor: pointer;
@@ -84,21 +90,25 @@
     }
     .navbar{
         display: flex;
-        position: relative;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
         background: none;
         height: auto;
         width: auto;
         top: 0;
+        margin: auto;
         flex-direction: row;
+        width: 500px;
+        left: 300px;
     }
     .navbar *{
         margin-left: 50px;
-        font-weight: 500;
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 24px;
         /* identical to box height */
         color: inherit;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         text-decoration: none;
     }
     

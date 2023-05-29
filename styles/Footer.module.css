@@ -1,13 +1,12 @@
 .footer{
     display: flex;
-    justify-content: space-between;
-    background: var(--black);
-    color: var(--white);
-    padding-bottom: 40px;
+    justify-content: center;
+    background: var(--white_bg);
+    padding: 40px 0;
 }
 .container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 90vw;
     margin: auto;
     align-items: center;
@@ -32,11 +31,8 @@
     text-decoration: none;
 }
 @media (min-width:900px){
-    .footer{
-        padding: 0;
-    }
     .container{
-        justify-content: space-between;
+        justify-content:center;
         flex-direction: row;
         padding: 0;
         align-items: center;

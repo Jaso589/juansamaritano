@@ -7,12 +7,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
         <div className={styles.container}>
-          <p>Juan Samaritano © Todos los derechos reservados</p>
-          <nav className={styles.nav_footer}>
-              {MenuItems.map(({href, text}) => (
-                <Link href={href} key={text}>{text}</Link>
-              ))}
-          </nav>
+          <p>Juan Samaritano | Jaso Visual © Todos los derechos reservados</p>
         </div>
     </footer>
   )

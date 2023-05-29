@@ -1,3 +1,6 @@
+.inicio{
+    background: var(--white_bg);
+}
 .projects{
     width: 90vw;
     margin: auto;

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Navbar.module.css'
 import { ActiveLink } from './ActiveLink'
 import Image from 'next/image'
+import SearchButton from './SearchButton'
+import Link from 'next/link'
 
 export const MenuItems = [
     {
@@ -13,12 +15,12 @@ export const MenuItems = [
       href: '/projects'
     },
     {
-      text:'Contacto',
-      href: '/contact'
-    },
-    {
       text:'Blog',
       href: '/blog'
+    },
+    {
+      text:'Contacto',
+      href: '/contact'
     }
   ]
   
@@ -56,7 +58,9 @@ export const Navbar = () => {
         <header className={navbar? styles.header_scroll : styles.header}>
           <div className={styles.container}>
             <div className={styles.brand}>
-              <p>Juan Samaritano</p>
+              <Link href={'/'} >
+                Jaso Visual
+              </Link>
             </div>
             <nav className={styles.navbar} style={menu ? menuOpen : null}>
             {
@@ -65,6 +69,7 @@ export const Navbar = () => {
               ))
             }
             </nav>
+            <SearchButton/>
             <button onClick={handleMenu} className={styles.btn_menu}>
               {
                 menu 

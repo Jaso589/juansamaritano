@@ -5,7 +5,6 @@ import React from 'react'
 const style = {
   color:'#0834FF',
   fontWeight: 600,
-  borderBottom: 'solid #0834FF 5px',
 }
 
 export const ActiveLink = ({text, href}) => {

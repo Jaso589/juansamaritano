@@ -5,22 +5,39 @@ import Image from 'next/image'
 
 import { getAllFilesMetadata } from '@/lib/mdx'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Blog = ({posts}) => {
   const [usuarios, setUsuarios]= useState([]);
   const [tablaUsuarios, setTablaUsuarios]= useState([]);
   const [busqueda, setBusqueda]= useState("");
-  
+  const router = useRouter();
+
   useEffect(()=>{
     setUsuarios(posts)
     setTablaUsuarios(posts)
     },[]
   )
     
+  // Handle search query
+  useEffect(() => {
+    if (router.query.q) {
+      setBusqueda(router.query.q);
+    }
+    
+  }, [router.query.q]);
+
+  useEffect(() => {
+    console.log(busqueda)
+    if(busqueda){
+      filtrar(busqueda) 
+    }
+  }, [busqueda]);
 
   const handleChange=e=>{
+    setBusqueda(router.query.q);
     setBusqueda(e.target.value);
-    filtrar(e.target.value);
+    filtrar(busqueda);
   }
 
   const filtrar=(terminoBusqueda)=>{
@@ -36,7 +53,7 @@ const Blog = ({posts}) => {
 
   return (
     <Layout title_nav={'Blog'}>
-      <section className='inicio'>
+      <section className={styles.inicio}>
         <div className={styles.projects}>
           <div className={styles.aside}>
             <h2>Mi Blog</h2>
