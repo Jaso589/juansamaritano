@@ -21,8 +21,8 @@ const Layout = ({ children, title_nav }) => {
           <button className='btn_social'>
             <Image
               src={'/svg/btn_socials.svg'}
-              width={60}
-              height={60}
+              width={40}
+              height={40}
               alt='btn_socials'
             />
           </button>
@@ -30,32 +30,32 @@ const Layout = ({ children, title_nav }) => {
             <a className='social' href='https://wa.me/51974145588' target='_blank' rel="noopener noreferrer">
                 <Image
                     src={'/svg/wsp.svg'}
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                     alt={'wsp'}
                 />
             </a>
             <a className='social' href='#' target='_blank' rel="noopener noreferrer">
                 <Image
                     src={'/svg/fb.svg'}
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                     alt={'fb'}
                 />
             </a>
             <a className='social' href='https://www.linkedin.com/in/juan-samaritano-ol%C3%B3rtegui-5a739419b/' target='_blank' rel="noopener noreferrer">
                 <Image
                     src={'/svg/linkedin.svg'}
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                     alt={'linkedin'}
                 />
             </a>
             <a className='social' href='https://github.com/Jaso589' target='_blank' rel="noopener noreferrer">
                 <Image
                     src={'/svg/github.svg'}
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                     alt={'github'}
                 />
             </a>

@@ -29,7 +29,7 @@ export const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   
   const changedBg = () =>{
-    console.log(window.scrollY)
+    // console.log(window.scrollY)
 
     if(window.scrollY >= 70){
       setNavbar(true)
