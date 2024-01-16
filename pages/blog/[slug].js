@@ -70,19 +70,24 @@ export default function BlogPost({ post, posts }) {
             <aside className={styles.aside}>
               <h3>Sigue explorando</h3>
               <ol>
-                {
-                  posts.map((post)=>(
-                    <li key={'link_' + post.slug.current}>
-                      <Link href=
-                      {`./${post.slug.current}`}>
-                        <div>
-                          <span>{formatDate(post.publishedAt)}</span>
-                          <h4>{post.title}</h4>
-                        </div>
-                      </Link>
-                    </li>
-                  ))
-                }
+                {posts &&
+                  posts.map((post) => {
+                    try {
+                      return (
+                        <li key={'link_' + post.slug.current}>
+                          <Link href={`./${post.slug.current}`}>
+                            <div>
+                              <span>{formatDate(post.publishedAt)}</span>
+                              <h4>{post.title}</h4>
+                            </div>
+                          </Link>
+                        </li>
+                      );
+                    } catch (error) {
+                      console.error('Error mapping post:', error);
+                      return null; // O cualquier otra acción de manejo de error que desees
+                    }
+                  })}
               </ol>
             </aside>
           </div>
