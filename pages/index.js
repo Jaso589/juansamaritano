@@ -1,115 +1,86 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Inter } from '@next/font/google'
-import Layout from '@/components/Layout'
 import Image from 'next/image'
-import { works } from './projects'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 
 import { FormContact } from '@/components/FormContact'
 import SliderComponent from '@/components/SliderComponent'
-import { getAllFilesMetadata } from '@/lib/mdx'
-import SliderProject from '@/components/SliderProject'
+import SpotifyPlayerComponent from '@/components/SpotifyPlayer'
+import { useEffect, useState } from 'react'
+import Layout from '@/components/Layout'
+import { client } from '@/sanity/lib/client'
+import { urlForImage } from '@/sanity/lib/image'
 
 const inter = Inter({ subsets: ['latin'] })
-
-const techs = [
-  {
-    name:'java_tec',
-    src: '/svg/javascript.svg',
-  },
-  {
-    name:'react_tec',
-    src: '/svg/react.svg',
-  },
-  {
-    name:'node_tec',
-    src: '/svg/nodejs.svg',
-  },
-  {
-    name:'python_tec',
-    src: '/svg/python.svg',
-  },
-  {
-    name:'figma_tec',
-    src: '/svg/figma.svg',
-  }
-]
-
-const techSkill = ['HTML/CSS3', 'Figma', 'JavaScript', 'React', 'Adobe Ilustrator', 'Nodejs']
 
 const services = [
   {
     service: 'Diseño UI & UX',
     icon: '/svg/diseño.svg',
-    description:'Lorem ipsum dolor sit amet consectetur. In molestie aliquet auctor mauris consequat in.'
+    description:'Creamos interfaces intuitivas y atractivas que cautivan a tus usuarios.'
   },
   {
     service: 'Desarrollo',
     icon: '/svg/desarrollo.svg',
-    description:'Lorem ipsum dolor sit amet consectetur. In molestie aliquet auctor mauris consequat in.'
+    description:'Creamos soluciones digitales personalizadas que impulsan tu negocio.'
   },
   {
     service: 'Automatizacion',
     icon: '/svg/automatizacion.svg',
-    description:'Lorem ipsum dolor sit amet consectetur. In molestie aliquet auctor mauris consequat in.'
+    description:'Optimizamos tus procesos empresariales y aumentamos tu eficiencia.'
   },
   {
     service: 'Brandign SEO',
     icon: '/svg/branding.svg',
-    description:'Lorem ipsum dolor sit amet consectetur. In molestie aliquet auctor mauris consequat in.'
+    description:'Construimos marcas memorables que conectan con tu audiencia y mejoran tu visibilidad online.'
   }
 ]
 
-const posts =[
-  {
-    title:'hola1',
-  },
-  {
-    title:'hola2'
-  },
-  {
-    title:'hola3'
-  }
-]
 
-export default function Home({ proyectoIndex, postIndex }) {
-  const proyectos = [];
-  const ite = () => {
-    for (let i = 0; i < 4; i++) {
-       proyectos.push(works[i])
-    }
-  }
-  ite()
+export default function Home({ projects, posts }) {
+  const [token, setToken] = useState('');
+  const idList = '5hHBJOmymJUUqZ6TAaLbRv';
+  // console.log(posts)
+  // useEffect(() => {
+  // //   // Llama a tu API para obtener el token de acceso
+  // //   fetch('/api/spotifyToken')
+  // //     .then((response) => response.json())
+  // //     .then((data) => setToken(data.token))
+  // //     .catch((error) => console.error('Error fetching Spotify token:', error));
+  // // }, []);
+  // const playlistId = '5hHBJOmymJUUqZ6TAaLbRv';
+  
   // console.log(proyectoIndex)
   return (
     <>
       <Layout title_nav={'Home'}>
         <div className={styles.inicio}>
+          <div className={styles.bg_dark}></div>
           <div className='container'>
             <div className={styles.content}>
               <div className={styles.blockTexts}>
                 <div className={styles.text}>
-                  <p>👋 Hola, mi nombre es</p>
+                  <p>👋 Hola!</p>
+                  
                   <h2>
-                    Juan Samaritano
+                    Soy Juan Samaritano
                   </h2>
                   <h1>
-                    Desarrollador web <br/>
-                    Electronico Industrial 
+                  Soy un Desarrollador Web<br/>y 
+                  Electronico Industrial 
                   </h1>
-                  <button className={styles.contact_btn}><Link href={'#contact'}>Contactar</Link></button>
+                  <div className={styles.links_home}>
+                    <Link className={styles.link_about} href={'/about'}>Leer más</Link>  
+                    <button className={styles.contact_btn}><Link href={'#contact'}>Contactar</Link></button>
+                  </div>
                 </div>
-                <div className={styles.tags_tech}>
-                  {
-                    techs.map(({src,name}) =>(
-                      <div className={styles.tag_tech} key={name}>
-                        <Image className={styles.img_tag}  src={src} width={54} height={54} alt={name}/>
-                      </div>
-                    ))
-                  }
-                </div>
+                <div className='spotify_home'>
+                    {
+                      <SpotifyPlayerComponent playlistUri={idList}/>
+                    }
+                  </div>
               </div>
               <div className={styles.animated}>
                 <div className={'circle'}>
@@ -120,57 +91,58 @@ export default function Home({ proyectoIndex, postIndex }) {
                 <div className={styles.img_jaso}>
                   <div className={styles.jaso}>
                     <Image
-                      src={'/img/jasov.png'}
+                      src={'/img/jaso_.jpg'}
                       fill
                       alt={'foto_portafolio'}
                     />
 
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
         </div>
+        <section className={styles.posts_home} id='projects'>
+          <div className='container'>
+              <h2>Proyectos</h2>
+              <p>Revisa algunos proyectos en los cuales he trabajado</p>
+              <div className={styles.project_content}>
+                {
+                  projects.map((project)=>(
+                    <Link key={project.slug.current} href={`project/${project.slug.current}`}>
+                      <div className={styles.project_card}>
+                        <div className={styles.project_img}>
+                          <Image
+                            className={styles.img_card}
+                            src={urlForImage(project.mainImage)}
+                            fill
+                            alt=''
+                          />
+                        </div>
+                        <div className={styles.data}>
+                          <h2>{project.title}</h2>
+                        </div>
+                      </div>
+                    </Link>
+                  ))
+                }
+              </div>
+              
+          </div>
+        </section>
         <section className={styles.posts_home}>
           <div className='container'>
             <h2>Explora mi blog</h2>
-            <h3>Checa mis nuevos posts y entérate de las nuevas novedades que tengo para ti!!</h3>
+            <p>Checa mis nuevos posts y entérate de las nuevas novedades que tengo para ti!!</p>
             <div className={styles.slide_content}>
-              <SliderComponent posts={postIndex}/>
+              <SliderComponent posts={posts}/>
             </div>
             
           </div>
         </section>
-        <section className={styles.about_home}>
-          <div className='container'>
-            <div className={styles.about_container}>
-              <div className={styles.text}>
-                <h2>Sobre mi</h2>
-                <h3>Quien soy?</h3>
-                <p>Un profesional creativo, con capacidad de resiliencia y aprendizaje continuo. Me especializo en el desarrollo frontend y diseño UX/UI.</p>
-                <p>Tengo estudios profesionales en Electrónica industrial, en este ámbito me dedico a explorar y estudiar proyectos de automatización</p>
-                <h5>Aquí algunas tecnologías con los que he estado trabajando últimamente</h5>
-                <ul>
-                
-                {
-                  techSkill.map((a) =>(
-                    <li key={a} > <Image className='check' src={'/svg/check.svg'} width={20} height={20} alt={a} /> {a}</li>
-                  ))
-                }
-              </ul>
-              </div>
-              
-            <div className={styles.about_img}>
-              <Image
-                src={'/img/jaso_tag.jpg'}
-                fill
-                alt='jaso_about'
-              />
-            </div>
-            </div>
-          </div>
-        </section>
         <section className={styles.services_home}>
+          <div className={styles.bg_dark}></div>
           <div className='container'>
             <h2>Servicios</h2>
             <h3>Puedes contar con algunos servicios que ofrezco</h3>
@@ -190,17 +162,8 @@ export default function Home({ proyectoIndex, postIndex }) {
             </div>
           </div>
         </section>
-        <hr className='hr_div container'/>
-        <section className={styles.projects_home}>
-          <div className='container'>
-              <h2>Proyectos</h2>
-              <h3>Revisa algunos proyectos en los cuales he trabajado</h3>
-              <div className={styles.slide_content}>
-                <SliderProject projectHome={proyectoIndex}/>
-              </div>
-              
-          </div>
-        </section>
+        {/* <hr className='hr_div container'/> */}
+        
         <section className={styles.contact_home} id='contact'>
           <FormContact/>
         </section>
@@ -210,10 +173,14 @@ export default function Home({ proyectoIndex, postIndex }) {
 }
 
 export async function getStaticProps() {
-  const postIndex = await getAllFilesMetadata('blog');
-  const proyectoIndex= await getAllFilesMetadata('projects');
-  // console.log(proyectoIndex)
-  return{
-    props: {proyectoIndex, postIndex}
-  }
+  // Consulta a Sanity para obtener los datos de los posts
+  const posts = await client.fetch('*[_type == "post"]');
+  const projects = await client.fetch('*[_type == "project"]');
+
+  return {
+    props: {
+      posts,
+      projects
+    },
+  };
 }

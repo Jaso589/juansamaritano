@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import styles from '@/styles/Slider.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { urlForImage } from '@/sanity/lib/image';
 // import { urlFor } from '@/lib/sanity';
 // import Tag from './Tag';
 
@@ -44,31 +45,34 @@ const SliderComponent = ({ posts }) => {
   }, []);
   // console.log(posts)
   return (
-    <Slider className={styles.sliderContainer} {...settings}>
-      {
-        posts.map((post) =>(
-          <div className={styles.card_post} key={post.title}>
-          <div>
-            <div className={styles.slide}>
-              <Link href={`/blog/${post.slug}`}>
-              <div className={styles.img_post}>
-                <Image
-                  src={post.img}
-                  fill
-                  alt={post.title + 'img'}
-                />
+    <div className='sliderContainer'>
+      <Slider className={styles.sliderContainer} {...settings}>
+        {
+          posts.map((post) =>(
+            <div className={styles.card_post} key={post.title}>
+              <div className={styles.slide}>
+                <Link href={`blog/${post.slug.current}`} className={styles.slide_link}>
+                  <div className={styles.card}>
+                    <div className={styles.img_post}>
+                      <Image
+                        src={urlForImage(post.mainImage)}
+                        fill
+                        alt={post.title + 'img'}
+                      />
+                    </div>
+                    <div className={styles.text_post}>
+                      <h3>{post.title}</h3>
+                      <p>{post.excerpt}</p>
+                    </div>
+                  </div>
+                </Link>
               </div>
-              <div className={styles.text_post}>
-                <h3>{post.title}</h3>
-                <p>{post.excerpt}</p>
-              </div>
-              </Link>
             </div>
-          </div>
-          </div>
-        ))
-      }
-    </Slider>
+          ))
+        }
+      </Slider>
+
+    </div>
   );
 };
 

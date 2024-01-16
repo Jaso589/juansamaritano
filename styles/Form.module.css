@@ -21,6 +21,7 @@
     padding: 10px;
     /* background: none; */
     border: none;
+    background: var(--accordion_color);
 }
 .content .form textarea{
     width: 100%;
@@ -28,6 +29,7 @@
     height: 150px;
     resize: none;
     border: none;
+    background: var(--accordion_color);
 }
 .content .form .btn_send{
     width: 100%;

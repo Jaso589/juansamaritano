@@ -1,6 +1,6 @@
 import React from 'react'
-import { useForm } from '@/hooks/useForm'
 import estilos from '@/styles/Form.module.css'
+import { useForm } from '@/hooks/useForm';
 
 const initalForm = {
   name:'',

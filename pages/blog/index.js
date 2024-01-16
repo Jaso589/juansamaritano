@@ -3,16 +3,18 @@ import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Projects.module.css'
 import Image from 'next/image'
 
-import { getAllFilesMetadata } from '@/lib/mdx'
+// import { getAllFilesMetadata } from '@/src/lib/mdx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { client } from '@/sanity/lib/client'
+import { urlForImage } from '@/sanity/lib/image'
 
 const Blog = ({posts}) => {
   const [usuarios, setUsuarios]= useState([]);
   const [tablaUsuarios, setTablaUsuarios]= useState([]);
   const [busqueda, setBusqueda]= useState("");
   const router = useRouter();
-
+  // console.log(posts)
   useEffect(()=>{
     setUsuarios(posts)
     setTablaUsuarios(posts)
@@ -28,7 +30,7 @@ const Blog = ({posts}) => {
   }, [router.query.q]);
 
   useEffect(() => {
-    console.log(busqueda)
+    // console.log(busqueda)
     if(busqueda){
       filtrar(busqueda) 
     }
@@ -54,34 +56,49 @@ const Blog = ({posts}) => {
   return (
     <Layout title_nav={'Blog'}>
       <section className={styles.inicio}>
+        <div className={styles.header_home}>
+          <div className='bg_dark'></div>
+          <div className='container'>
+            <div className={styles.brand_blog}>
+              <Image
+                src={'/img/logo_blog.png'}
+                width={200}
+                height={200}
+                alt='jaso'
+              />
+            </div>
+          </div>
+        </div>
+
         <div className={styles.projects}>
-          <div className={styles.aside}>
-            <h2>Mi Blog</h2>
-            <p>Estos son algunos articulos que he escrito</p>
-          </div>
-          <div className={styles.content}>
-            <div className={styles.search}>
-              <label>Buscar <input type={'search'} onChange={handleChange} value={busqueda} placeholder={'ingresa la word'}/></label>
-              <span>N#: {usuarios.length}</span>
+          <div className='container'>
+            <div className={styles.aside}>
+              <h2>Mi Blog</h2>
+              {/* <p>Estos son algunos articulos que he escrito</p> */}
+              <div className={styles.search}>
+                <label>Buscar <input type={'search'} onChange={handleChange} value={busqueda} placeholder={'Busca un tema...'}/></label>
+                <span>N#: {usuarios.length}</span>
+              </div>
             </div>
-            <div className={styles.cards}>
-              {
-                usuarios.map( post => (
-                  <Link className={styles.card_post} key={post.slug} href={`blog/${post.slug}`}>
-                    <div className={styles.post_img}>
-                      <Image className={styles.card_img_post} src={post.img} fill alt={post.title}/>
-                    </div>
-                    
-                    <div>
-                      <h2>{post.title}</h2>
-                      <p>{post.date}</p>
-                    </div>
-                    
-                  </Link>
-                ))
-              }
+            <div className={styles.content}>
+                {
+                  usuarios.map( post => (
+                    <Link className={styles.card_post} key={post.slug.current} href=
+                    {`blog/${post.slug.current}`}>
+                      <div className={styles.post_img}>
+                        <Image className={styles.card_img_post} src={urlForImage(post.mainImage)} fill alt={post.title}/>
+                      </div>
+                      <div>
+                        <h2>{post.title}</h2>
+                        <p>{post.excerpt}</p>
+                      </div>
+                      
+                    </Link>
+                  ))
+                }
             </div>
           </div>
+          
         </div>
       </section>
     </Layout>
@@ -91,9 +108,12 @@ const Blog = ({posts}) => {
 export default Blog
 
 export async function getStaticProps() {
-  const posts = await getAllFilesMetadata('blog');
-  console.log(posts)
-  return{
-    props: {posts}
-  }
+  // Consulta a Sanity para obtener los datos de los posts
+  const posts = await client.fetch('*[_type == "post"]');
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }

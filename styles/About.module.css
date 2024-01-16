@@ -1,0 +1,132 @@
+.header{
+    background-color: var(--white_bg);
+    background-image: url('/img/about_bg.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    background-position: 20% 40%;
+    padding-bottom: 20px;
+}
+
+.header_about{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* padding: 90px 0; */
+    padding-top: 90px;
+}
+.bg_dark{
+    background: var(--bg_cover);
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+.div_about{
+    width: 100%;
+}
+.container_img{
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    margin: 10px 0;
+    /* background-color: red; */
+}
+.img_jaso{
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.header_about h2{
+    /* font-size: 48px; */
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.header_about h1{
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.header_about h1::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--white);
+}
+.content_info{
+    width:100%;
+}
+.skills{
+    /* background: red; */
+    margin: 10px 0;
+}
+.skills h3{
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.skills ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    /* background: red; */
+    min-height: 100px;
+}
+.skills ul li{
+    /* border: 1px solid #ffff; */
+    /* margin: 10px; */
+    padding: 10px;
+    background: #18181C;
+}
+.about_2{
+    background-color: var(--white_bg);
+    padding: 20px 0;
+}
+.services_about{
+    background-color: var(--white_bg);
+    /* padding-top: 0px; */
+    padding: 20px 0;
+
+}
+.services_content{
+    width: 100%;
+}
+
+@media (min-width:900px) {
+    .header_about{
+        flex-direction: row;
+    }
+    .div_about{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+    }
+   .content_info{
+        width: 45%;
+        /* background: red; */
+    }
+    .header_about .container_img{
+        height: 400px;
+        margin-top: 20px;
+    }
+    .container_img{
+        height: 100%;
+    }
+    .content{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}

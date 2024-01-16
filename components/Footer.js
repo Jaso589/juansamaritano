@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
         <div className={styles.container}>
-          <p>Juan Samaritano | Jaso Visual © Todos los derechos reservados</p>
+          <p>Jaso Visual © Todos los derechos reservados</p>
         </div>
     </footer>
   )

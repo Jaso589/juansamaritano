@@ -5,44 +5,56 @@
     padding:20px 0;
 }
 .sliderContainer .card_post{
-    background: var(--white);
+    /* background: var(--accordion_color); */
     text-decoration: none;
     color: inherit;
     padding: 10px 0;
+    position: relative;
 }
-.card_post:hover{
+.slide{
+    background-color: var(--accordion_color);
+    min-height: 350px;
+}
+.slide:hover{
     color: var(--blue);
 }
-.sliderContainer .img_post{
+.slide{
+    /* margin: 0 20px; */
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+    
+    backdrop-filter: blur(10px);
+}
+
+.slide a{
+    text-decoration: none;
+    color: inherit;
+}
+.slide .card{
     position: relative;
-    height: 200px;
-    width: auto;
+    height: 350px;
+    /* width: 200px; */
 }
-.sliderContainer .img_post img{
-    object-fit: cover;
-}
+
 .sliderContainer .text_post{
     padding: 10px;
-    
+    min-height: 150px;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--accordion_color);
 }
 .sliderContainer .text_post h3{
     font-size: 1.3rem;
     text-transform: capitalize;
 }
-.slide{
-    /* margin: 0 20px; */
-    
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+.img_post{
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+}
+.img_post img{ 
+    object-fit: cover;
 }
 
-.slide{
-    /* margin: 0 20px; */
-    backdrop-filter: blur(10px);
-}
-.slide a{
-    text-decoration: none;
-    color: inherit;
-}
 .main_image{
     position: relative;
     height:200px;

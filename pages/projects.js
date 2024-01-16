@@ -2,82 +2,7 @@ import Layout from '@/components/Layout'
 import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Projects.module.css'
 import Image from 'next/image'
-import { getAllFilesMetadata } from '@/lib/mdx'
-
-export const works = [
-  {
-    img:'/projects/project1.jpg',
-    title:'Landing page',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/dropdown-navigation/',
-    code:'https://github.com/Jaso589/dropdown-navigation'
-  },
-  {
-    img:'/projects/project2.jpg',
-    title:'Advice generator',
-    description:'Pagina generadora de frases responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/advice-generator/',
-    code:'https://github.com/Jaso589/advice-generator'
-  },
-  {
-    img:'/projects/project3.jpg',
-    title:'Dashboard time',
-    description:'Pagina de agenda de tiempo hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/dashboard-time/',
-    code:'https://github.com/Jaso589/dashboard-time'
-  },
-  {
-    img:'/projects/project4.jpg',
-    title:'Landing page sunsyde',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/landing-page-sunsyde/',
-    code:'https://github.com/Jaso589/landing-page-sunsyde'
-  },
-  {
-    img:'/projects/project5.jpg',
-    title:'Space turism',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/space-turism/',
-    code:'https://github.com/Jaso589/space-turism'
-  },
-  {
-    img:'/projects/project6.jpg',
-    title:'Launch countdown timer',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/launch-countdwon-timer/',
-    code:'https://github.com/Jaso589/launch-countdwon-timer'
-  },
-  {
-    img:'/projects/project7.jpg',
-    title:'Play rock paper scissors',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/play-rock-paper-scissors/',
-    code:'https://github.com/Jaso589/play-rock-paper-scissors'
-  },
-  {
-    img:'/projects/project8.jpg',
-    title:'Url shortening api',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/url-shortening-api/',
-    code:'https://github.com/Jaso589/url-shortening-api'
-  },
-  {
-    img:'/projects/project9.jpg',
-    title:'Manage landing page',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/manage-landing-page/',
-    code:'https://github.com/Jaso589/manage-landing-page'
-  },
-  {
-    img:'/projects/project10.jpg',
-    title:'Bookmark landing page',
-    description:'Pagina responsiva hecho en javascritp y html',
-    deploy:'https://jaso589.github.io/bookmark-landing-page/',
-    code:'https://github.com/Jaso589/bookmark-landing-page'
-  }
-  
-  
-]
+// import { getAllFilesMetadata } from '@/src/lib/mdx'
 
 const Projects = ({projects}) => {
 
@@ -156,9 +81,9 @@ const Projects = ({projects}) => {
 
 export default Projects
 
-export async function getStaticProps() {
-  const projects = await getAllFilesMetadata('projects');
-  return{
-    props: {projects}
-  }
-}
+// export async function getStaticProps() {
+//   const projects = await getAllFilesMetadata('projects');
+//   return{
+//     props: {projects}
+//   }
+// }

@@ -34,7 +34,7 @@ const SearchButton = ({ products }) => {
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Buscar..."
         />
-        <button type="submit"><Image src={'/svg/search.svg'} width={20} height={20} alt='search'/></button>
+        <button type="submit"><Image src={'/svg/search_d.svg'} width={30} height={30} alt='search'/></button>
       </form>
     </div>
   );

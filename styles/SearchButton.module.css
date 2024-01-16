@@ -16,9 +16,13 @@
     padding-left: 10px;
     margin-right: 7px;
     border: none;
-    width: 100px;
-    /* position: absolute;
-    right: 30px; */
+    width: 80px;
+    /* background: var(--white); */
+    position: absolute;
+    opacity: 0;
+    right: 0px;
+    border-radius: 3px ;
+    z-index: 999;
 }
 .search_container form button{
     position: relative;
@@ -31,8 +35,35 @@
     align-items: center;
     justify-content: center;
 }
+.search_container form input:focus {
+    transition: all .5s ease;
+    width: 200px;
+    position: absolute;
+    right: 30px;
+    opacity: 1;
+    background: var(--white);
+    color: black;
+}
 @media (min-width:900px){
-    .search_container form input:focus{
+    .search_container form input{
+        font-size: .9rem;
+        height: 30px;
+        padding-left: 10px;
+        margin-right: 7px;
+        border: none;
+        width: 80px;
+        background: var(--white);
+        position: absolute;
+        right: 30px;
+        border-radius: 3px ;
+        z-index: 999;
+        opacity: 1;
+        color: black;
+    }
+    .search_container form input:focus {
+        transition: all .5s ease;
         width: 200px;
+        position: absolute;
+        right: 30px;
     }
 }
