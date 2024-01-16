@@ -49,14 +49,14 @@ export default function BlogPost({ post, posts }) {
   // Utiliza el objeto postData para mostrar el contenido del post en tu página
   return (
     <Layout title_nav={post ? post.title : ''}>
-      <section className={styles.post_header}>
+      {/* <section className={styles.post_header}>
       <Image className={styles.card_img_post} src={`${urlForImage(post.mainImage)}`} fill alt={post.title}/>
       <div className={styles.header_title}>
         <div className='container'>
           <h1>{post.title}</h1>
         </div>
       </div>
-      </section>
+      </section> */}
       <section className={styles.blog_home}>
         <div className='container'>
           <div className={styles.post_container}>
