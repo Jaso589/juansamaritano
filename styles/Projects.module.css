@@ -60,6 +60,7 @@
     color: inherit;
     margin: 10px;
     text-decoration: none;
+    background: var(--accordion_color);
     /* box-shadow: -4px -4px 15px rgba(243, 243, 243, 0.19), 4px 4px 10px rgba(134, 134, 134, 0.25); */
 }
 .post_img{

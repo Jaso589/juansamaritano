@@ -94,17 +94,21 @@ export const Navbar = () => {
               <div className={styles.content}>
                 {
                   MenuItems1.map(({text, href}) => (
-                    <ActiveLink href={href} key={href} text={text}></ActiveLink>
+                    <Link onClick={handleMenu} href={href} key={text}>
+                      {text}
+                    </Link>
                   ))
                 }
                 {
                   MenuItems2.map(({text, href}) => (
-                    <ActiveLink href={href} key={href} text={text}></ActiveLink>
+                    <Link onClick={handleMenu} href={href} key={text}>
+                      {text}
+                    </Link>
                   ))
                 } 
               </div>
               <div>
-                <Link href={'/'}>
+                <Link href={'/'} onClick={handleMenu}>
                   <Image
                     src={'/svg/jaso_v.svg'}
                     width={150}

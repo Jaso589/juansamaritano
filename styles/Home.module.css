@@ -3,7 +3,7 @@
     background-position: 20% 40%;
     background-size: cover;
     /* background: linear-gradient(199.11deg, #F1F1F1 4.75%, rgba(242, 241, 241, 0.854099) 37.2%, rgba(252, 251, 251, 0.74) 102.61%); */
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
