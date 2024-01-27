@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Projects.module.css'
 import Image from 'next/image'
 
-// import { getAllFilesMetadata } from '@/src/lib/mdx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { client } from '@/sanity/lib/client'

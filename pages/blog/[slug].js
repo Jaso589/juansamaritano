@@ -48,7 +48,7 @@ export default function BlogPost({ post, posts }) {
   // console.log(posts)
   // Utiliza el objeto postData para mostrar el contenido del post en tu página
   return (
-    <Layout title_nav={post ? post.title : ''}>
+    <Layout title_nav={post ? post.title : 'blog'}>
       {/* <section className={styles.post_header}>
       <Image className={styles.card_img_post} src={`${urlForImage(post.mainImage)}`} fill alt={post.title}/>
       <div className={styles.header_title}>
